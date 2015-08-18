@@ -1,0 +1,16 @@
+From jfabricius at web.de  Wed Sep 19 20:46:45 2007
+From: jfabricius at web.de (Jochen Fabricius)
+Date: Wed, 19 Sep 2007 20:46:45 +0200
+Subject: [Esweep-users] Application Note "Impulsantwort messen mit esweep"
+Message-ID: <200709192046.46069.jfabricius@web.de>
+
+Moin, 
+
+hier zu finden: http://esweep.berlios.de/AppNotes/impulsantwort.pdf (102,4kB)
+
+Enth?lt auch eine Beschreibung wie man gnuplot dazu bringt eine Tk-Canvas zu 
+schreiben und sie in ein Programm einbindet. 
+
+Jochen
+
+

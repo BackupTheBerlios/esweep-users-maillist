@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Esweep-users] esweep und Fordschritt
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/esweep-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20esweep%20und%20Fordschritt&In-Reply-To=%3C20080803135645.8d0dcf93.jfabricius%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Esweep-users] esweep und Fordschritt</H1>
+    <B>Jochen Fabricius</B> 
+    <A HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20esweep%20und%20Fordschritt&In-Reply-To=%3C20080803135645.8d0dcf93.jfabricius%40web.de%3E"
+       TITLE="[Esweep-users] esweep und Fordschritt">jfabricius at web.de
+       </A><BR>
+    <I>Sun Aug  3 13:56:45 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[Esweep-users] Frage zum Status
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[Esweep-users] esweep und Fordschritt
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo, 
+
+registriere Dich doch einfach &#252;ber die Weboberfl&#228;che. Deine Mail habe ich inzwischen freigegeben, die m&#252;sste jetzt auf der Liste stehen. 
+
+ 
+&gt;<i> Die Unterst&#252;tzung von Soundkarten unter Linux (kann zu BSD-Systemen oder Macs 
+</I>&gt;<i> keine Aussage machen) ist doch sehr viel schlechter, als unter M$-Systemen.
+</I>&gt;<i> In letzter Zeit besch&#228;ftige ich mich zunehmend mit HW-Entwicklung und beim 
+</I>&gt;<i> Spielen mit Mikrocontrollern dachte ich, so ein ATmega w&#228;re doch genau das 
+</I>&gt;<i> Richtige, die Defizite der Soundkarte im Hinblick auf Me&#223;technik auszub&#252;geln. 
+</I>
+An die Hardwareseite habe ich auch schon gedacht, ob man das nicht vielleicht ein bisschen besser mit esweep verzahnen k&#246;nnte. Aber so schlecht ist die Unterst&#252;tzung von Soundkarten auch nicht. Es gibt einige USB-Modelle, die recht ordentliche Ergebnisse liefern. Abtastraten bis 200kHz sind zwar vielleicht beeindruckend, f&#252;r Audioanwendungen aber eher &#252;berfl&#252;ssig. 
+
+&gt;<i> Das f&#252;hrt zu der Frage, ob Du Dir vorstellen k&#246;nntest, den Ein- und Ausgang 
+</I>&gt;<i> konfigurierbar zu gestalten. Vielleicht &#252;ber plugins, sodass es erweiterbar 
+</I>&gt;<i> (vielleicht sogar f&#252;r professionelle A/D-Wandler) w&#228;re.
+</I>
+Ja, auf lange Sicht ist geplant, andere I/O's einzubinden. Sch&#246;n w&#228;re auch eine GPIB-Schnittstelle, um mit so einem Bus ausgestattete Messger&#228;te zu steuern. Leider ist die Unterst&#252;tzung entsprechender PC-Karten unter freien Betriebssystemen eher mangelhaft. 
+
+&gt;<i> In meiner gestrigen mail hatte ich noch von Fehlern geschrieben. Es k&#246;nnte 
+</I>&gt;<i> sein, dass die einfach von einem falschen Aufruf herr&#252;hrten.
+</I>&gt;<i> Versuchsweise habe ich bei impulse.tcl als 1. Zeile eingef&#252;gt:
+</I>
+Du musst vermutlich den Pfad zur esweep-Bibliothek anpassen. Der steht irgendwo im Skript als /usr/local/lib/... Hast Du auch die Zusatzbibliothek esweep-lib.tcl geladen? 
+
+&gt;<i> #!/usr/bin/tcl
+</I>
+Unter Debian wei&#223; ich es nicht, aber Du musst das Skript mit Tk-Unterst&#252;tzung starten, in den meisten F&#228;llen ist das &quot;wish&quot; (+evtl. eine Versionsnummer). 
+
+&gt;<i> Vielleicht lie&#223;e sich das ja auch bei esweep kombinieren?
+</I>&gt;<i> Die Kernfunktionalt&#228;t l&#228;uft mit tcl, Betriebssystemabh&#228;ngigkeiten in C oder 
+</I>&gt;<i> C++ und die GUI in Java?
+</I>
+Denkbar ist das. Der Einsatz von Tcl/Tk hat aber noch einen weiteren Grund: die Java-Unterst&#252;tzung von OpenBSD (meinem Arbeitssystem) ist sehr schlecht. Das hat vor allem lizenzrechtliche Gr&#252;nde. Die Lizenz von Tcl/Tk ist &#228;hnlich wie die BSD-Lizenz (oder ISC), also sehr offen. Ich habe damit die M&#246;glichkeit, mir den Tcl-Interpreter zu schnappen, ihn zu ver&#228;ndern/erweitern, und kann mit dem Ergebnis machen was ich will - z. B. wieder unter eine BSD-artige Lizenz stellen. Diese Freiheit bietet mir Java nicht. 
+
+&gt;<i> Was ich mir dann noch vorstellen k&#246;nnte, w&#228;re die Erweiterung des Systems zu 
+</I>&gt;<i> einem Oszi f&#252;r Arme ;)
+</I>&gt;<i> Einfache Messwert-Anzeige und vielleicht noch Frequenzanalyse &#252;ber eine 
+</I>&gt;<i> aufgenommene Messreihe. Eine Messreihe k&#246;nnte man ja durchaus mit einer 
+</I>&gt;<i> WAV-Datei vergleichen, bei der einzelne Messwerte (T&#246;ne) aufgenommen wurden.
+</I>&gt;<i> Da Du die fftlib ja schon nachprogrammiert hast, d&#252;rfte die meiste 
+</I>&gt;<i> Funktionalit&#228;t bereits vorhanden sein (denke ich mal).
+</I>
+Angenommen, ich w&#252;rde es hinbekommen, dass die Messdaten jetzt schon schnell genug dargestellt werden k&#246;nnten, dann w&#228;re es schon jetzt m&#246;glich. 
+
+&gt;<i> Ich habe jetzt nicht die mathematischen F&#228;higkeiten, um Dir beim Kern zu 
+</I>&gt;<i> helfen, aber bei den Randthemen k&#246;nnte ich mir eine Zusammenarbeit / 
+</I>&gt;<i> Erg&#228;nzung durchaus vorstellen. 
+</I>
+Hilfe ist immer willkommen. Lies Dir auch mal den letzten Post im Forenthread durch, da habe ich beschrieben wie es weitergehen soll. 
+
+-- 
+Jochen Fabricius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/esweep-users">jfabricius at web.de</A>&gt;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[Esweep-users] Frage zum Status
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[Esweep-users] esweep und Fordschritt
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/esweep-users">More information about the Esweep-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,270 @@
+From santi_mhz at yahoo.de  Sat Aug  2 16:51:37 2008
+From: santi_mhz at yahoo.de (Santiago)
+Date: Sat, 2 Aug 2008 16:51:37 +0200
+Subject: [Esweep-users] Frage zum Status
+Message-ID: <200808021651.38004.santi_mhz@yahoo.de>
+
+Hallo Jochen,
+
+habe heute den Fred ?ber Dein Messsystem entdeckt. Bin sehr an Messsystem 
+interessiert, welches auch unter Linux l?uft.
+
+Irgendwie habe ich das mit dem Bauen wohl nicht auf die Reihe bekommen.
+Bei mir l?uft Debian Etch und die ?bersetzungsorgie lief fehlerfrei durch.
+
+Beim Starten von z.B. impulse.tcl kommen diese Fehler:
+./impulse.tcl: line 6: load: command not found
+./impulse.tcl: line 20: array: command not found
+./impulse.tcl: line 21: samplerate: command not found
+./impulse.tcl: line 22: ir_rise_time: command not found
+./impulse.tcl: line 23: ir_rise_time_default: command not found
+./impulse.tcl: line 24: ir_length: command not found
+./impulse.tcl: line 25: ir_length_default: command not found
+./impulse.tcl: line 26: latency: command not found
+./impulse.tcl: line 27: spl_ref: command not found
+./impulse.tcl: line 28: sweep_type: command not found
+./impulse.tcl: line 29: sweep_rate: command not found
+./impulse.tcl: line 30: sweep_length: command not found
+./impulse.tcl: line 31: channel: command not found
+./impulse.tcl: line 32: dual_channel: command not found
+./impulse.tcl: line 33: show_overlays: command not found
+./impulse.tcl: line 34: current: command not found
+./impulse.tcl: line 35: fft_length: command not found
+./impulse.tcl: line 36: fft_smooth: command not found
+./impulse.tcl: line 37: calib: command not found
+./impulse.tcl: line 38: bg_color: command not found
+./impulse.tcl: line 39: left_win: command not found
+./impulse.tcl: line 40: right_win: command not found
+         Cannot open load file '/usr/local/bin/gnuplot'
+         line 0: util.c: No such file or directory
+
+./impulse.tcl: line 42: burst_resolution: command not found
+./impulse.tcl: line 43: burst_periods: command not found
+./impulse.tcl: line 44: burst_steps: command not found
+./impulse.tcl: line 45: burst_shift: command not found
+./impulse.tcl: line 46: syntax error near unexpected token `}'
+./impulse.tcl: line 46: `}'
+
+F?r Tips w?re ich sehr dankbar.
+
+Gru? Santi
+
+
+
+From jfabricius at web.de  Sun Aug  3 13:56:45 2008
+From: jfabricius at web.de (Jochen Fabricius)
+Date: Sun, 3 Aug 2008 13:56:45 +0200
+Subject: [Esweep-users] esweep und Fordschritt
+In-Reply-To: <200808030859.38806.santi_mhz@yahoo.de>
+References: <200808030859.38806.santi_mhz@yahoo.de>
+Message-ID: <20080803135645.8d0dcf93.jfabricius@web.de>
+
+Hallo, 
+
+registriere Dich doch einfach ?ber die Weboberfl?che. Deine Mail habe ich inzwischen freigegeben, die m?sste jetzt auf der Liste stehen. 
+
+ 
+> Die Unterst?tzung von Soundkarten unter Linux (kann zu BSD-Systemen oder Macs 
+> keine Aussage machen) ist doch sehr viel schlechter, als unter M$-Systemen.
+> In letzter Zeit besch?ftige ich mich zunehmend mit HW-Entwicklung und beim 
+> Spielen mit Mikrocontrollern dachte ich, so ein ATmega w?re doch genau das 
+> Richtige, die Defizite der Soundkarte im Hinblick auf Me?technik auszub?geln. 
+
+An die Hardwareseite habe ich auch schon gedacht, ob man das nicht vielleicht ein bisschen besser mit esweep verzahnen k?nnte. Aber so schlecht ist die Unterst?tzung von Soundkarten auch nicht. Es gibt einige USB-Modelle, die recht ordentliche Ergebnisse liefern. Abtastraten bis 200kHz sind zwar vielleicht beeindruckend, f?r Audioanwendungen aber eher ?berfl?ssig. 
+
+> Das f?hrt zu der Frage, ob Du Dir vorstellen k?nntest, den Ein- und Ausgang 
+> konfigurierbar zu gestalten. Vielleicht ?ber plugins, sodass es erweiterbar 
+> (vielleicht sogar f?r professionelle A/D-Wandler) w?re.
+
+Ja, auf lange Sicht ist geplant, andere I/O's einzubinden. Sch?n w?re auch eine GPIB-Schnittstelle, um mit so einem Bus ausgestattete Messger?te zu steuern. Leider ist die Unterst?tzung entsprechender PC-Karten unter freien Betriebssystemen eher mangelhaft. 
+
+> In meiner gestrigen mail hatte ich noch von Fehlern geschrieben. Es k?nnte 
+> sein, dass die einfach von einem falschen Aufruf herr?hrten.
+> Versuchsweise habe ich bei impulse.tcl als 1. Zeile eingef?gt:
+
+Du musst vermutlich den Pfad zur esweep-Bibliothek anpassen. Der steht irgendwo im Skript als /usr/local/lib/... Hast Du auch die Zusatzbibliothek esweep-lib.tcl geladen? 
+
+> #!/usr/bin/tcl
+
+Unter Debian wei? ich es nicht, aber Du musst das Skript mit Tk-Unterst?tzung starten, in den meisten F?llen ist das "wish" (+evtl. eine Versionsnummer). 
+
+> Vielleicht lie?e sich das ja auch bei esweep kombinieren?
+> Die Kernfunktionalt?t l?uft mit tcl, Betriebssystemabh?ngigkeiten in C oder 
+> C++ und die GUI in Java?
+
+Denkbar ist das. Der Einsatz von Tcl/Tk hat aber noch einen weiteren Grund: die Java-Unterst?tzung von OpenBSD (meinem Arbeitssystem) ist sehr schlecht. Das hat vor allem lizenzrechtliche Gr?nde. Die Lizenz von Tcl/Tk ist ?hnlich wie die BSD-Lizenz (oder ISC), also sehr offen. Ich habe damit die M?glichkeit, mir den Tcl-Interpreter zu schnappen, ihn zu ver?ndern/erweitern, und kann mit dem Ergebnis machen was ich will - z. B. wieder unter eine BSD-artige Lizenz stellen. Diese Freiheit bietet mir Java nicht. 
+
+> Was ich mir dann noch vorstellen k?nnte, w?re die Erweiterung des Systems zu 
+> einem Oszi f?r Arme ;)
+> Einfache Messwert-Anzeige und vielleicht noch Frequenzanalyse ?ber eine 
+> aufgenommene Messreihe. Eine Messreihe k?nnte man ja durchaus mit einer 
+> WAV-Datei vergleichen, bei der einzelne Messwerte (T?ne) aufgenommen wurden.
+> Da Du die fftlib ja schon nachprogrammiert hast, d?rfte die meiste 
+> Funktionalit?t bereits vorhanden sein (denke ich mal).
+
+Angenommen, ich w?rde es hinbekommen, dass die Messdaten jetzt schon schnell genug dargestellt werden k?nnten, dann w?re es schon jetzt m?glich. 
+
+> Ich habe jetzt nicht die mathematischen F?higkeiten, um Dir beim Kern zu 
+> helfen, aber bei den Randthemen k?nnte ich mir eine Zusammenarbeit / 
+> Erg?nzung durchaus vorstellen. 
+
+Hilfe ist immer willkommen. Lies Dir auch mal den letzten Post im Forenthread durch, da habe ich beschrieben wie es weitergehen soll. 
+
+-- 
+Jochen Fabricius <jfabricius at web.de>
+
+
+From jfabricius at web.de  Sun Aug  3 16:53:47 2008
+From: jfabricius at web.de (Jochen Fabricius)
+Date: Sun, 3 Aug 2008 16:53:47 +0200
+Subject: [Esweep-users] esweep und Fordschritt
+In-Reply-To: <200808031506.05248.santi_mhz@yahoo.de>
+References: <200808030859.38806.santi_mhz@yahoo.de>
+	<20080803135645.8d0dcf93.jfabricius@web.de>
+	<200808031506.05248.santi_mhz@yahoo.de>
+Message-ID: <20080803165347.5182b6ce.jfabricius@web.de>
+
+Hallo, 
+
+> > An die Hardwareseite habe ich auch schon gedacht, ob man das nicht
+> > vielleicht ein bisschen besser mit esweep verzahnen k?nnte. Aber so
+> > schlecht ist die Unterst?tzung von Soundkarten auch nicht. Es gibt einige
+> > USB-Modelle, die recht ordentliche Ergebnisse liefern. Abtastraten bis
+> > 200kHz sind zwar vielleicht beeindruckend, f?r Audioanwendungen aber eher
+> > ?berfl?ssig.
+> 
+> So wollte ich mich nicht verstanden wissen. Ich wollte nicht (mit 200 kHz) 
+> beeindrucken. Wenn Du eine M-Audio als Vergleich nimmst, die sampelt bereits 
+> mit 96 kHz - ist also garnicht so weit weg von den m?glichen 100 kHz. 
+> 
+> Laut Aussage eines Freundes l??t die Unterst?tzung von Soundkarten bei 
+> Frequenzen unter 200Hz sehr zu w?nschen ?brig. Das k?nnte mit einem ATmega 
+> behoben werden. 
+> Wenn Du mir bei der Schnittstellen-Anpassung helfen w?rdest, w?rde ich gerne 
+> so eine Platine entwickeln und Deinem Projekt (unter Deiner Lizenz) zur 
+> Verf?gung stellen.
+
+Was meinst Du mit Unterst?tzung unter 200 Hz? Ich wei?, dass manche Soundkarten einen viel zu kleinen Koppel-C im Ausgang verwenden, so dass der Frequenzgang viel zu fr?h abf?llt. Aber das sollte eigentlich kein Problem darstellen, gibt n?mlich auch vern?nftig gebaute Karten. 
+
+> > > Vielleicht lie?e sich das ja auch bei esweep kombinieren?
+> > > Die Kernfunktionalt?t l?uft mit tcl, Betriebssystemabh?ngigkeiten in C
+> > > oder C++ und die GUI in Java?
+> >
+> > Denkbar ist das. Der Einsatz von Tcl/Tk hat aber noch einen weiteren Grund:
+> > die Java-Unterst?tzung von OpenBSD (meinem Arbeitssystem) ist sehr
+> > schlecht. 
+> 
+> OK, sorry. Ich dachte nicht, dass es noch Betriebssysteme g?be, die ohne Java 
+> auskommen k?nnen/wollen. Den Artikel 
+> (http://myutil.com/2007/10/15/jdk-1-5-OpenBSD-4-1) kennst Du sicher?
+
+Es gibt auch Nutzer, die ohne Java auskommen wollen. Und ohne Flash. Und Javascript. Und das ganz andere Ged?ns, das einen nur Zeit kostet und ein potentielles Risiko darstellt (ja, auch Java). In manchen Belangen bin ich sehr, sehr konservativ. 
+
+> > Ich habe damit die M?glichkeit, mir den Tcl-Interpreter zu schnappen, ihn zu
+> > ver?ndern/erweitern, und kann mit dem Ergebnis machen was ich will - z. B.
+> > wieder unter eine BSD-artige Lizenz stellen. Diese Freiheit bietet mir Java
+> > nicht.
+> 
+> Nun, ich denke, dass das bei Java auch nicht notwendig ist. Die Sprache hat 
+> eine derart saubere Struktur, dass Eingriffe in den Interpreter nicht 
+> wirklich Sinn machen. Zumal es dann ja auch mit der Portierbarkeit vorbei 
+> ist. Es gibt bereits die M?glichkeit Bibliotheken ?ber die 
+> native-Schnittstelle einzubinden. F?r Spracherweiterungen gibt es noch die 
+> extension-Schnittstelle. 
+
+In den Interpreter direkt muss man auch bei Tcl nicht rein. Ich k?nnte mir aber z. B. von Tcl den Quellcode der Canvas nehmen, ein wenig anpassen, und m?sste nicht den Umweg ?ber gnuplot bei der Darstellung machen. Ich muss der Canvas nur beibringen, statt auf Tcl-Listen auf C-Arrays zu reagieren. So schwer ist das gar nicht, kostet allerdings etwas Zeit. Durch die Lizenz von Tcl kann ich das aber ohne Gewissensbisse machen. Geht das auch bei Java? Von anderen Toolkits (QT, GTK) wei? ich, dass es aufgrund der Lizenz ((L)GPL) nicht so einfach m?glich ist. 
+
+> Wie bereits erw?hnt, halte ich im Moment die parallele Schnittstelle f?r die 
+> einfachste, um externe Hardware anzubinden. Mir gef?llt die Idee mit dem 
+> Streaming von Messdaten. So umgeht man die Notwendigkeit, die Anwendung als 
+> superuser starten zu m?ssen.
+
+Warum als SU? ?ber die parallele Schnittstelle kann man auch so lesen und schreiben. 
+
+Bei der parallelen Schnittstelle sehe ich eher das Problem, dass die langsam aber sicher ausstirbt. Notebooks haben heutzutage nur noch sehr selten diese Schnittstelle. Und ein Notebook ist f?r den Hobbymesser nahezu unersetzlich, weil man damit einfach, aber zuverl?ssig, die USB-Soundkarte auf floatendes Potential bekommt - Brummschleife ade.  
+
+Nachteil an USB scheint mir die etwas h?here Komplexit?t zu sein. Ich bin mir nicht schl?ssig, was man eigentlich genau braucht (USB Transceiver, klar, und weiter? Ich muss mir unbedingt mal die ganzen Specs genauer anschauen.)
+
+-- 
+Jochen Fabricius <jfabricius at web.de>
+
+
+From santi_mhz at yahoo.de  Fri Aug  8 14:05:10 2008
+From: santi_mhz at yahoo.de (Santiago)
+Date: Fri, 8 Aug 2008 14:05:10 +0200
+Subject: [Esweep-users] =?iso-8859-1?q?mein_Verst=E4ndnis=3F?=
+Message-ID: <200808081405.10207.santi_mhz@yahoo.de>
+
+Hallo,
+
+ich habe mich mit anderen Lautsprecherbastlern aus dem Bekanntenkreis 
+kurzgeschlossen und der gr??te Wunsch an eine Messbox war, die Messung 
+autark, bzw. asynchron (d.h. ohne Verbindung zum PC) durchf?hren zu k?nnen.
+
+Dabei ist das Datenvolumen sicher der schwierigste zu bew?ltigende Knackpunkt.
+
+Meine Idee ist nun die, auf dem PC einen (oder mehrere) sweep(s) zu generieren 
+und abzuspeichern. Die gespeicherten Sweeps k?nnten in die Messbox geladen 
+werden. Die Messbox w?rde aus dem sweep die Frequenzen erzeugen und die 
+Messung durchf?hren (also Messdaten aufzeichnen).
+Die Messdaten w?rden dann zum PC transferiert und dort (nach einer m?glichen 
+Fensterung) ausgewertet.
+
+Habe ich das richtig verstanden, dass die samplerate die max. Frequenz, bzw. 
+die Messfrequenz des ADCs bezeichnet und *data die einzelnen Amplitudenwerte 
+enth?lt.
+
+Wenn ich jetzt eine Messreihe als sweep ausgewertet haben m?chte, was muss ich 
+bei einer Fensterung der Messdaten beachten?
+
+Ist die Auswertung eine Differenzbildung von Ausgangssweep und Messdaten? - 
+oder sind die Messdaten alleine auswertungsf?hig?
+
+Wenn die Messbox einen Autostart h?tte, also erst bei eintreffenden Daten mit 
+der Aufzeichnung beg?nne, mit welcher Aufzeichnungszeit m??te ich rechnen?
+In der Beschreibung "new_csd_method" wird von einer 10ms langen Messung 
+ausgegangen, die sp?ter sogar noch reduziert wird. 
+Sind 10ms also hinreichend? Oder sollte ich l?ngere Aufzeichnungen planen?
+
+Gru? Santiago
+
+
+
+From jfabricius at web.de  Sat Aug  9 12:18:01 2008
+From: jfabricius at web.de (Jochen Fabricius)
+Date: Sat, 9 Aug 2008 12:18:01 +0200
+Subject: [Esweep-users] =?iso-8859-1?q?mein_Verst=E4ndnis=3F?=
+In-Reply-To: <200808081405.10207.santi_mhz@yahoo.de>
+References: <200808081405.10207.santi_mhz@yahoo.de>
+Message-ID: <20080809121801.b62c7399.jfabricius@web.de>
+
+Moin, 
+
+> Meine Idee ist nun die, auf dem PC einen (oder mehrere) sweep(s) zu generieren 
+> und abzuspeichern. Die gespeicherten Sweeps k?nnten in die Messbox geladen 
+> werden. Die Messbox w?rde aus dem sweep die Frequenzen erzeugen und die 
+> Messung durchf?hren (also Messdaten aufzeichnen).
+
+das ist nat?rlich machbar. Aber ich finde das sehr kompliziert: Sweep erzeugen, auf das Ger?t spielen, Messdaten auf den PC bringen, auswerten. Und was, wenn man mit was anderem als nem Sweep messen m?chte? 
+
+Dann doch lieber die Variante mit USB-Soundkarte (oder Ethernet/parallel/...). 
+
+> Habe ich das richtig verstanden, dass die samplerate die max. Frequenz, bzw. 
+> die Messfrequenz des ADCs bezeichnet und *data die einzelnen Amplitudenwerte 
+> enth?lt.
+
+Samplerate ist die Abtastrate, also maximale Frequenz < Samplerate/2
+In *data sind tats?chlich die einzelnen Amplitudenwerte (oder was anderes, je nachdem, was man gerade treibt). Ich w?rde allerdings davon abraten, in der C-Schnittstelle rumzuwerkeln. Erstens wird sich da in n?chster Zeit noch einiges ?ndern, und zweitens mache ich ja nicht umsonst ein abstraktes Interface nach Tcl. Der Nutzer (oder Programmersteller) soll sich eben nicht darum k?mmern m?ssen. 
+
+> Wenn die Messbox einen Autostart h?tte, also erst bei eintreffenden Daten mit 
+> der Aufzeichnung beg?nne, mit welcher Aufzeichnungszeit m??te ich rechnen?
+> In der Beschreibung "new_csd_method" wird von einer 10ms langen Messung 
+> ausgegangen, die sp?ter sogar noch reduziert wird. 
+> Sind 10ms also hinreichend? Oder sollte ich l?ngere Aufzeichnungen planen? 
+
+F?r eine ordentliche Messung mit einem Sweep braucht man mindestens 500ms + Latenz. Bei mir haben sich ~700ms als Minimum herausgestellt, messen tue ich aber meist mit einem 2s langen Sweep. Dadurch habe ich mehr SNR und die harmonischen Verzerrungen werden weiter weggeschoben (in die Zukunft des Hauptimpulses), wodurch ich auch bei ziemlich tiefen Frequenzen noch den Klirr betrachten kann (ungef?hr bis 20Hz runter). 
+
+-- 
+Jochen Fabricius <jfabricius at web.de>
+
+

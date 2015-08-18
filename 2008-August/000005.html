@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Esweep-users] mein Verst&#228;ndnis?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/esweep-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20%3D%3Fiso-8859-1%3Fq%3Fmein_Verst%3DE4ndnis%3D3F%3F%3D&In-Reply-To=%3C20080809121801.b62c7399.jfabricius%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Esweep-users] mein Verst&#228;ndnis?</H1>
+    <B>Jochen Fabricius</B> 
+    <A HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20%3D%3Fiso-8859-1%3Fq%3Fmein_Verst%3DE4ndnis%3D3F%3F%3D&In-Reply-To=%3C20080809121801.b62c7399.jfabricius%40web.de%3E"
+       TITLE="[Esweep-users] mein Verst&#228;ndnis?">jfabricius at web.de
+       </A><BR>
+    <I>Sat Aug  9 12:18:01 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Esweep-users] mein Verst&#228;ndnis?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Moin, 
+
+&gt;<i> Meine Idee ist nun die, auf dem PC einen (oder mehrere) sweep(s) zu generieren 
+</I>&gt;<i> und abzuspeichern. Die gespeicherten Sweeps k&#246;nnten in die Messbox geladen 
+</I>&gt;<i> werden. Die Messbox w&#252;rde aus dem sweep die Frequenzen erzeugen und die 
+</I>&gt;<i> Messung durchf&#252;hren (also Messdaten aufzeichnen).
+</I>
+das ist nat&#252;rlich machbar. Aber ich finde das sehr kompliziert: Sweep erzeugen, auf das Ger&#228;t spielen, Messdaten auf den PC bringen, auswerten. Und was, wenn man mit was anderem als nem Sweep messen m&#246;chte? 
+
+Dann doch lieber die Variante mit USB-Soundkarte (oder Ethernet/parallel/...). 
+
+&gt;<i> Habe ich das richtig verstanden, dass die samplerate die max. Frequenz, bzw. 
+</I>&gt;<i> die Messfrequenz des ADCs bezeichnet und *data die einzelnen Amplitudenwerte 
+</I>&gt;<i> enth&#228;lt.
+</I>
+Samplerate ist die Abtastrate, also maximale Frequenz &lt; Samplerate/2
+In *data sind tats&#228;chlich die einzelnen Amplitudenwerte (oder was anderes, je nachdem, was man gerade treibt). Ich w&#252;rde allerdings davon abraten, in der C-Schnittstelle rumzuwerkeln. Erstens wird sich da in n&#228;chster Zeit noch einiges &#228;ndern, und zweitens mache ich ja nicht umsonst ein abstraktes Interface nach Tcl. Der Nutzer (oder Programmersteller) soll sich eben nicht darum k&#252;mmern m&#252;ssen. 
+
+&gt;<i> Wenn die Messbox einen Autostart h&#228;tte, also erst bei eintreffenden Daten mit 
+</I>&gt;<i> der Aufzeichnung beg&#246;nne, mit welcher Aufzeichnungszeit m&#252;&#223;te ich rechnen?
+</I>&gt;<i> In der Beschreibung &quot;new_csd_method&quot; wird von einer 10ms langen Messung 
+</I>&gt;<i> ausgegangen, die sp&#228;ter sogar noch reduziert wird. 
+</I>&gt;<i> Sind 10ms also hinreichend? Oder sollte ich l&#228;ngere Aufzeichnungen planen? 
+</I>
+F&#252;r eine ordentliche Messung mit einem Sweep braucht man mindestens 500ms + Latenz. Bei mir haben sich ~700ms als Minimum herausgestellt, messen tue ich aber meist mit einem 2s langen Sweep. Dadurch habe ich mehr SNR und die harmonischen Verzerrungen werden weiter weggeschoben (in die Zukunft des Hauptimpulses), wodurch ich auch bei ziemlich tiefen Frequenzen noch den Klirr betrachten kann (ungef&#228;hr bis 20Hz runter). 
+
+-- 
+Jochen Fabricius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/esweep-users">jfabricius at web.de</A>&gt;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Esweep-users] mein Verst&#228;ndnis?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/esweep-users">More information about the Esweep-users
+mailing list</a><br>
+</body></html>

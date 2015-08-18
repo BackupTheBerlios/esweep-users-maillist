@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Esweep-users] esweep und Fordschritt
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/esweep-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20esweep%20und%20Fordschritt&In-Reply-To=%3C20080803165347.5182b6ce.jfabricius%40web.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Esweep-users] esweep und Fordschritt</H1>
+    <B>Jochen Fabricius</B> 
+    <A HREF="mailto:esweep-users%40lists.berlios.de?Subject=Re%3A%20%5BEsweep-users%5D%20esweep%20und%20Fordschritt&In-Reply-To=%3C20080803165347.5182b6ce.jfabricius%40web.de%3E"
+       TITLE="[Esweep-users] esweep und Fordschritt">jfabricius at web.de
+       </A><BR>
+    <I>Sun Aug  3 16:53:47 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Esweep-users] esweep und Fordschritt
+</A></li>
+        <LI>Next message: <A HREF="000004.html">[Esweep-users] mein Verst&#228;ndnis?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo, 
+
+&gt;<i> &gt; An die Hardwareseite habe ich auch schon gedacht, ob man das nicht
+</I>&gt;<i> &gt; vielleicht ein bisschen besser mit esweep verzahnen k&#246;nnte. Aber so
+</I>&gt;<i> &gt; schlecht ist die Unterst&#252;tzung von Soundkarten auch nicht. Es gibt einige
+</I>&gt;<i> &gt; USB-Modelle, die recht ordentliche Ergebnisse liefern. Abtastraten bis
+</I>&gt;<i> &gt; 200kHz sind zwar vielleicht beeindruckend, f&#252;r Audioanwendungen aber eher
+</I>&gt;<i> &gt; &#252;berfl&#252;ssig.
+</I>&gt;<i> 
+</I>&gt;<i> So wollte ich mich nicht verstanden wissen. Ich wollte nicht (mit 200 kHz) 
+</I>&gt;<i> beeindrucken. Wenn Du eine M-Audio als Vergleich nimmst, die sampelt bereits 
+</I>&gt;<i> mit 96 kHz - ist also garnicht so weit weg von den m&#246;glichen 100 kHz. 
+</I>&gt;<i> 
+</I>&gt;<i> Laut Aussage eines Freundes l&#228;&#223;t die Unterst&#252;tzung von Soundkarten bei 
+</I>&gt;<i> Frequenzen unter 200Hz sehr zu w&#252;nschen &#252;brig. Das k&#246;nnte mit einem ATmega 
+</I>&gt;<i> behoben werden. 
+</I>&gt;<i> Wenn Du mir bei der Schnittstellen-Anpassung helfen w&#252;rdest, w&#252;rde ich gerne 
+</I>&gt;<i> so eine Platine entwickeln und Deinem Projekt (unter Deiner Lizenz) zur 
+</I>&gt;<i> Verf&#252;gung stellen.
+</I>
+Was meinst Du mit Unterst&#252;tzung unter 200 Hz? Ich wei&#223;, dass manche Soundkarten einen viel zu kleinen Koppel-C im Ausgang verwenden, so dass der Frequenzgang viel zu fr&#252;h abf&#228;llt. Aber das sollte eigentlich kein Problem darstellen, gibt n&#228;mlich auch vern&#252;nftig gebaute Karten. 
+
+&gt;<i> &gt; &gt; Vielleicht lie&#223;e sich das ja auch bei esweep kombinieren?
+</I>&gt;<i> &gt; &gt; Die Kernfunktionalt&#228;t l&#228;uft mit tcl, Betriebssystemabh&#228;ngigkeiten in C
+</I>&gt;<i> &gt; &gt; oder C++ und die GUI in Java?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Denkbar ist das. Der Einsatz von Tcl/Tk hat aber noch einen weiteren Grund:
+</I>&gt;<i> &gt; die Java-Unterst&#252;tzung von OpenBSD (meinem Arbeitssystem) ist sehr
+</I>&gt;<i> &gt; schlecht. 
+</I>&gt;<i> 
+</I>&gt;<i> OK, sorry. Ich dachte nicht, dass es noch Betriebssysteme g&#228;be, die ohne Java 
+</I>&gt;<i> auskommen k&#246;nnen/wollen. Den Artikel 
+</I>&gt;<i> (<A HREF="http://myutil.com/2007/10/15/jdk-1-5-OpenBSD-4-1">http://myutil.com/2007/10/15/jdk-1-5-OpenBSD-4-1</A>) kennst Du sicher?
+</I>
+Es gibt auch Nutzer, die ohne Java auskommen wollen. Und ohne Flash. Und Javascript. Und das ganz andere Ged&#246;ns, das einen nur Zeit kostet und ein potentielles Risiko darstellt (ja, auch Java). In manchen Belangen bin ich sehr, sehr konservativ. 
+
+&gt;<i> &gt; Ich habe damit die M&#246;glichkeit, mir den Tcl-Interpreter zu schnappen, ihn zu
+</I>&gt;<i> &gt; ver&#228;ndern/erweitern, und kann mit dem Ergebnis machen was ich will - z. B.
+</I>&gt;<i> &gt; wieder unter eine BSD-artige Lizenz stellen. Diese Freiheit bietet mir Java
+</I>&gt;<i> &gt; nicht.
+</I>&gt;<i> 
+</I>&gt;<i> Nun, ich denke, dass das bei Java auch nicht notwendig ist. Die Sprache hat 
+</I>&gt;<i> eine derart saubere Struktur, dass Eingriffe in den Interpreter nicht 
+</I>&gt;<i> wirklich Sinn machen. Zumal es dann ja auch mit der Portierbarkeit vorbei 
+</I>&gt;<i> ist. Es gibt bereits die M&#246;glichkeit Bibliotheken &#252;ber die 
+</I>&gt;<i> native-Schnittstelle einzubinden. F&#252;r Spracherweiterungen gibt es noch die 
+</I>&gt;<i> extension-Schnittstelle. 
+</I>
+In den Interpreter direkt muss man auch bei Tcl nicht rein. Ich k&#246;nnte mir aber z. B. von Tcl den Quellcode der Canvas nehmen, ein wenig anpassen, und m&#252;sste nicht den Umweg &#252;ber gnuplot bei der Darstellung machen. Ich muss der Canvas nur beibringen, statt auf Tcl-Listen auf C-Arrays zu reagieren. So schwer ist das gar nicht, kostet allerdings etwas Zeit. Durch die Lizenz von Tcl kann ich das aber ohne Gewissensbisse machen. Geht das auch bei Java? Von anderen Toolkits (QT, GTK) wei&#223; ich, dass es aufgrund der Lizenz ((L)GPL) nicht so einfach m&#246;glich ist. 
+
+&gt;<i> Wie bereits erw&#228;hnt, halte ich im Moment die parallele Schnittstelle f&#252;r die 
+</I>&gt;<i> einfachste, um externe Hardware anzubinden. Mir gef&#228;llt die Idee mit dem 
+</I>&gt;<i> Streaming von Messdaten. So umgeht man die Notwendigkeit, die Anwendung als 
+</I>&gt;<i> superuser starten zu m&#252;ssen.
+</I>
+Warum als SU? &#220;ber die parallele Schnittstelle kann man auch so lesen und schreiben. 
+
+Bei der parallelen Schnittstelle sehe ich eher das Problem, dass die langsam aber sicher ausstirbt. Notebooks haben heutzutage nur noch sehr selten diese Schnittstelle. Und ein Notebook ist f&#252;r den Hobbymesser nahezu unersetzlich, weil man damit einfach, aber zuverl&#228;ssig, die USB-Soundkarte auf floatendes Potential bekommt - Brummschleife ade.  
+
+Nachteil an USB scheint mir die etwas h&#246;here Komplexit&#228;t zu sein. Ich bin mir nicht schl&#252;ssig, was man eigentlich genau braucht (USB Transceiver, klar, und weiter? Ich muss mir unbedingt mal die ganzen Specs genauer anschauen.)
+
+-- 
+Jochen Fabricius &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/esweep-users">jfabricius at web.de</A>&gt;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Esweep-users] esweep und Fordschritt
+</A></li>
+	<LI>Next message: <A HREF="000004.html">[Esweep-users] mein Verst&#228;ndnis?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/esweep-users">More information about the Esweep-users
+mailing list</a><br>
+</body></html>
